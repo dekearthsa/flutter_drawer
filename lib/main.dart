@@ -5,7 +5,7 @@ import './view//viewHome.dart';
 import './view//viewLoginLogout.dart';
 import './view/viewSetting.dart';
 import './view//viewWellBreathSetting.dart';
-import './view/viewSetting.dart';
+import './avatar/widgetDrawerHeader.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   int _pageSelection = 0;
-  String _menuSelected = "Home";
+  String _menuSelected = "home";
   Color _selectedMenu = Color.fromARGB(255, 252, 209, 250);
   Icon _selectedIcon = Icon(Icons.home);
 
@@ -88,8 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Color.fromARGB(255, 255, 243, 254),
           width: 250.0,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 width: 250.0,
@@ -98,14 +96,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 252, 209, 250),
                   ),
-                  child: Text("Header"),
+                  child: WidgetDrawerHeader(),
                 ),
               ),
               ListTile(
                 // tileColor: Color.fromARGB(255, 252, 209, 250),
                 tileColor: _menuSelected == 'home'? _selectedMenu: null,
                 leading: _menuSelected == 'home'?  _selectedIcon:Icon(Icons.home_outlined),
-                title: Text("Home "),
+                title: const Text("Home"),
                 onTap: () {
                   _haddleSelectionPage(0);
                 },
@@ -113,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 tileColor: _menuSelected == 'dashboard'? _selectedMenu: null,
                 leading: _menuSelected == 'dashboard'? _selectedIcon:Icon(Icons.dashboard_outlined),
-                title: Text("Dashboard"),
+                title: const Text("Dashboard"),
                 onTap: () {
                   _haddleSelectionPage(1);
                 },
@@ -121,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 tileColor:  _menuSelected == 'channel'? _selectedMenu: null,
                 leading: _menuSelected == 'channel' ? _selectedIcon : Icon(Icons.route_outlined),
-                title: Text("Channel"),
+                title: const Text("Channel"),
                 onTap: () {
                   _haddleSelectionPage(2);
                 },
@@ -129,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 tileColor: _menuSelected == 'wb'? _selectedMenu: null,
                 leading: _menuSelected == 'wb'? _selectedIcon : Icon(Icons.thermostat),
-                title: Text("WellBreath"),
+                title: const Text("WellBreath"),
                 onTap: () {
                   _haddleSelectionPage(3);
                 },
@@ -139,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 tileColor: _menuSelected == 'setting'? _selectedMenu: null,
                 leading: _menuSelected == 'setting'? _selectedIcon: Icon(Icons.settings_outlined),
-                title: Text("Setting"),
+                title: const Text("Setting"),
                 onTap: () {
                   _haddleSelectionPage(4);
                 },
@@ -147,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ListTile(
                 tileColor: _menuSelected == 'login'? _selectedMenu: null,
                 leading: _menuSelected == 'login'? _selectedIcon : Icon(Icons.exit_to_app_outlined),
-                title: Text("Logout"),
+                title: const Text("Logout"),
                 onTap: () {
                   _haddleSelectionPage(5);
                 },
