@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 // import '../view/viewSetting.dart';
 // import '../main.dart';
@@ -33,44 +32,46 @@ class _WidgetDrawerHeaderState extends State<WidgetDrawerHeader> {
     return Container(
       // decoration: BoxDecoration(border:Border.all(color: Colors.blueAccent) ),
       child: Row(
+        children: [
+        Container(
+            width: 65.0,
+            height: 65.0,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: const Color.fromARGB(255, 255, 255, 255),
+              // border:Border.all(color: Colors.blueAccent)
+            ),
+            margin: EdgeInsets.only(
+              right: 20.0,
+            ),
+          // child: const Icon(Icons.person, color: Color.fromARGB(255, 68, 68, 68),size: 30.0,),
+            child: const CircleAvatar(
+              backgroundImage: const AssetImage('assets/images/pie.png'),
+              radius: 220,
+          ),
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 65.0,
-              height: 65.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color.fromARGB(255, 255, 255, 255),
-                // border:Border.all(color: Colors.blueAccent) 
-                ),
-              margin: EdgeInsets.only(right: 20.0,),
-              // child: const Icon(Icons.person, color: Color.fromARGB(255, 68, 68, 68),size: 30.0,),
-              child: const CircleAvatar(
-                backgroundImage: const AssetImage('assets/images/pie.png'),
-                radius: 220,
-              ),
+              // margin: const EdgeInsets.only( right: 15.0),
+              child: const Text("Firstname",
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromARGB(255, 255, 255, 255))),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  // margin: const EdgeInsets.only( right: 15.0),
-                  child: Text("Firstname",
-                      style: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[600])),
-                ),
-                Container(
-                  // margin: const EdgeInsets.only( right: 15.0),
-                  child: Text("Lastname",
-                      style: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[600])),
-                )
-              ],
+            Container(
+              // margin: const EdgeInsets.only( right: 15.0),
+              child: const Text("Lastname",
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromARGB(255, 255, 255, 255))),
             )
-          ]),
+          ],
+        )
+      ]),
     );
   }
 }

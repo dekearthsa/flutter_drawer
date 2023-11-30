@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Journey Solution',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor:  Color.fromARGB(255, 58, 125, 183)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: ' Journey Solution'),
+      home: const MyHomePage(title: 'Journey Solution'),
     );
   }
 }
@@ -45,32 +45,32 @@ class _MyHomePageState extends State<MyHomePage> {
     const ViewLoginLogout(title: "Login/Logout"),
   ];
 
-  int _pageSelection = 0;
+  int r = 0;
   String _menuSelected = "home";
-  Color _selectedMenu = const Color.fromARGB(255, 252, 209, 250);
-  Icon _selectedIcon = const Icon(Icons.home);
+  Color _selectedMenu = Color.fromARGB(255, 209, 239, 252);
+  Icon _selectedIcon = const Icon(Icons.home,color: Color.fromARGB(255, 0, 145, 255));
 
   void _haddleSelectionPage(int selector) {
     setState(() {
-      _pageSelection = selector;
+      r = selector;
       if (selector == 0) {
         _menuSelected = "home";
-        _selectedIcon = const Icon(Icons.home);
+        _selectedIcon = const Icon(Icons.home, color: Color.fromARGB(255, 0, 145, 255));
       } else if (selector == 1) {
         _menuSelected = "dashboard";
-        _selectedIcon = const Icon(Icons.dashboard);
+        _selectedIcon = const Icon(Icons.dashboard, color: Color.fromARGB(255, 0, 145, 255));
       } else if (selector == 2) {
         _menuSelected = "channel";
-        _selectedIcon = const Icon(Icons.route);
+        _selectedIcon = const Icon(Icons.route, color: Color.fromARGB(255, 0, 145, 255));
       } else if (selector == 3) {
         _menuSelected = "wb";
-        _selectedIcon = const Icon(Icons.thermostat_auto);
+        _selectedIcon = const Icon(Icons.thermostat_auto, color: Color.fromARGB(255, 0, 145, 255));
       } else if (selector == 4) {
         _menuSelected = "setting";
-        _selectedIcon = const Icon(Icons.settings);
+        _selectedIcon = const Icon(Icons.settings, color: Color.fromARGB(255, 0, 145, 255));
       } else if (selector == 5) {
         _menuSelected = "login";
-        _selectedIcon = const Icon(Icons.exit_to_app_sharp);
+        _selectedIcon = const Icon(Icons.exit_to_app_sharp, color: Color.fromARGB(255, 0, 145, 255));
       }
     });
   }
@@ -84,39 +84,36 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         drawer: Drawer(
           // shadowColor: null,
-          backgroundColor: const Color.fromARGB(255, 255, 243, 254),
+          backgroundColor: Color.fromARGB(255, 183, 226, 255),
           width:  250.0,
           child: Column(
             children: [
-              Container(
-                width:  250.0,
-                height: 200.0,
+              InkWell(
+                onTap: (() => {
+                  _haddleSelectionPage(4)
+                }),
+                // width:  350.0,
+                // height: 200.0,
                 // decoration: BoxDecoration(
                 //   border:Border.all(color: Colors.blueAccent) 
                 // ),
-                child: DrawerHeader(
+                child:  DrawerHeader(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 252, 209, 250),
+                      color: Color.fromARGB(255, 80, 130, 215),
                     ),
-                    child:ElevatedButton(
-                      
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(350, 500),
-                        // animationDuration: Duration(microseconds: 0),
-                        // enableFeedback: false,m
-                        splashFactory: NoSplash.splashFactory,
-                        backgroundColor: const Color.fromARGB(255, 252, 209, 250),
-                        elevation: 0,
-                        // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        //         RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-                                
-                        //       ),
-                      ),
-                      child: WidgetDrawerHeader(),
-                      onPressed: () => {
-                        _haddleSelectionPage(4)
-                      },
-                    )),
+                    child: WidgetDrawerHeader(),
+                    // child:ElevatedButton(
+                    //   style: ElevatedButton.styleFrom(
+                    //     splashFactory: NoSplash.splashFactory,
+                    //     backgroundColor: const Color.fromARGB(255, 252, 209, 250),
+                    //     elevation: 0,
+                    //   ),
+                    //   child: WidgetDrawerHeader(),
+                    //   onPressed: () => {
+                    //     _haddleSelectionPage(4)
+                    //   },
+                    // )
+                  ),
               ),
               ListTile(
                 // tileColor: Color.fromARGB(255, 252, 209, 250),
@@ -124,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 leading: _menuSelected == 'home'
                     ? _selectedIcon
                     : const Icon(Icons.home_outlined),
-                title: const Text("Home"),
+                title: _menuSelected == 'home'? const Text("Home", style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 145, 255)),) :const Text("Home"),
                 onTap: () {
                   _haddleSelectionPage(0);
                 },
@@ -134,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 leading: _menuSelected == 'dashboard'
                     ? _selectedIcon
                     : const Icon(Icons.dashboard_outlined),
-                title: const Text("Dashboard"),
+                title: _menuSelected == 'dashboard'? const Text("Dashboard", style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 145, 255)),) :const Text("Dashboard"),
                 onTap: () {
                   _haddleSelectionPage(1);
                 },
@@ -144,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 leading: _menuSelected == 'channel'
                     ? _selectedIcon
                     : const Icon(Icons.route_outlined),
-                title: const Text("Channel"),
+                title: _menuSelected == 'channel'? const Text("Channel", style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 145, 255)),) :const Text("Channel"),
                 onTap: () {
                   _haddleSelectionPage(2);
                 },
@@ -154,20 +151,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 leading: _menuSelected == 'wb'
                     ? _selectedIcon
                     : const Icon(Icons.thermostat),
-                title: const Text("WellBreath"),
+                title: _menuSelected == 'wb'? const Text("Wellbreath", style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 145, 255)),) :const Text("Wellbreath"),
                 onTap: () {
                   _haddleSelectionPage(3);
                 },
               ),
               const Expanded(child: SizedBox()),
               const Divider(
-                  height: 1.0, color: Color.fromARGB(255, 194, 194, 194)),
+                  height: 1.0, color: Color.fromARGB(255, 255, 255, 255)),
               ListTile(
                 tileColor: _menuSelected == 'setting' ? _selectedMenu : null,
                 leading: _menuSelected == 'setting'
                     ? _selectedIcon
                     : const Icon(Icons.settings_outlined),
-                title: const Text("Setting"),
+                title:_menuSelected == 'setting'? const Text("Setting", style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 145, 255)),) :const Text("Setting"),
                 onTap: () {
                   _haddleSelectionPage(4);
                 },
@@ -177,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 leading: _menuSelected == 'login'
                     ? _selectedIcon
                     : const Icon(Icons.exit_to_app_outlined),
-                title: const Text("Logout"),
+                title: _menuSelected == 'login'? const Text("Logout", style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 145, 255)),) :const Text("Logout"),
                 onTap: () {
                   _haddleSelectionPage(5);
                 },
@@ -186,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         body: Container(
-          child: _pages[_pageSelection],
+          child: _pages[r],
         ));
   }
 }
