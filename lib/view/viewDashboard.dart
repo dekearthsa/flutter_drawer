@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import './chart/chartLineWidget.dart';
+import './chart/chartBarWidget.dart';
+import './chart/chartPieWidget.dart';
 
 class ViewDashboard extends StatefulWidget {
   final String title;
@@ -17,9 +19,13 @@ class _ViewDashboardState extends State<ViewDashboard>{
         title: Text(widget.title),
       ),
       body: Center(
-        child: Container(
-          margin: EdgeInsets.only(top: 50.0),
-          child: Text("DashboardPage"),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(children: [
+            LineChartWidget(),
+            BarChartWidget(),
+            PieChartWidget(),
+          ]),
         ),
       )
     );

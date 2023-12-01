@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'component/componentCardWellBreath.dart';
-import 'package:slidable_button/slidable_button.dart';
+// import 'package:slidable_button/slidable_button.dart';
 import 'component/componentCardWellBreathOnOff.dart';
 import 'component/componentCardAlwayDryActive.dart';
 import 'component/componentCardAlwayDryTiming.dart';
 import 'component/componentCardAlwayDryOnOff.dart';
 import 'component/componentCardLightStatus.dart';
+import 'component/componentCardLightForLightOnOff.dart';
 
 class ViewHomePage extends StatefulWidget {
   final String title;
@@ -193,7 +194,7 @@ class _ViewHomePageState extends State<ViewHomePage> {
               // alignment: Alignment.center,
               child: Card(
                 child: Container(
-                    child: Column(
+                  child: Column(
                   children: [
                     Container(
                         alignment: Alignment.topLeft,
@@ -209,10 +210,10 @@ class _ViewHomePageState extends State<ViewHomePage> {
                               ),
                             ),
                             Text("Light for life",
-                                style: const TextStyle(
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold))
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold))
                           ],
                         )),
                     Container(
@@ -221,15 +222,32 @@ class _ViewHomePageState extends State<ViewHomePage> {
                       child: Card(
                         child: Column(
                           children: [
-                            WidgetLightforLifeStatus(isActiveLight: false, isBattery: 100, isDeviceID: "43:B3:34:34:3F",),
-                            WidgetLightforLifeStatus(isActiveLight: true, isBattery: 50, isDeviceID: "23:F3:34:44:FF",),
-                            WidgetLightforLifeStatus(isActiveLight: false, isBattery: 100, isDeviceID: "34:94:D9:03:23",),
-                            WidgetLightforLifeStatus(isActiveLight: true, isBattery: 12, isDeviceID: "3D:9R:32:34:00",),
+                            WidgetLightforLifeStatus(
+                              isActiveLight: false,
+                              isBattery: 100,
+                              isDeviceID: "43:B3:34:34:3F",
+                            ),
+                            WidgetLightforLifeStatus(
+                              isActiveLight: true,
+                              isBattery: 50,
+                              isDeviceID: "23:F3:34:44:FF",
+                            ),
+                            WidgetLightforLifeStatus(
+                              isActiveLight: false,
+                              isBattery: 100,
+                              isDeviceID: "34:94:D9:03:23",
+                            ),
+                            WidgetLightforLifeStatus(
+                              isActiveLight: true,
+                              isBattery: 12,
+                              isDeviceID: "3D:9R:32:34:00",
+                            ),
                           ],
                         ),
                         color: Color.fromARGB(255, 251, 251, 135),
                       ),
                     ),
+                    WidgetLightForLifeOnOff(isStatus: setInfoLFL,),
                     Container(
                         width: MediaQuery.of(context).size.width * 1,
                         // height: 15,
@@ -244,7 +262,9 @@ class _ViewHomePageState extends State<ViewHomePage> {
                             onPressed: () =>
                                 {_haddleOpenLightForLife(setInfoLFL)},
                             icon: Icon(
-                              Icons.arrow_drop_down_outlined,
+                              setInfoLFL == true
+                              ? Icons.arrow_drop_up_outlined
+                              : Icons.arrow_drop_down_outlined,
                               color: const Color.fromARGB(255, 255, 255, 255),
                             )))
                   ],
