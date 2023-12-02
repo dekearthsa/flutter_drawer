@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './view/viewChannel.dart';
 import './view/viewDashboard.dart';
 import './view//viewHome.dart';
-import './view//viewLoginLogout.dart';
+import 'viewLoginLogout.dart';
 import './view/viewSetting.dart';
 import './view//viewWellBreathSetting.dart';
 import './avatar/widgetDrawerHeader.dart';
