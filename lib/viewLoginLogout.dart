@@ -12,6 +12,7 @@ class _ViewLoginLogoutState extends State<ViewLoginLogout> {
   String onUsername = "";
   String onPassword = "";
   String onError = "";
+  
   void _haddleLogin() {
     if (onUsername == "Earth" && onPassword == "1234") {
       print(onUsername);
@@ -28,7 +29,6 @@ class _ViewLoginLogoutState extends State<ViewLoginLogout> {
       setState(() {
         onError = "Invalid username or password";
       });
-
     }
   }
 

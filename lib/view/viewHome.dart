@@ -194,7 +194,7 @@ class _ViewHomePageState extends State<ViewHomePage> {
               // alignment: Alignment.center,
               child: Card(
                 child: Container(
-                  child: Column(
+                    child: Column(
                   children: [
                     Container(
                         alignment: Alignment.topLeft,
@@ -210,10 +210,10 @@ class _ViewHomePageState extends State<ViewHomePage> {
                               ),
                             ),
                             Text("Light for life",
-                              style: const TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold))
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold))
                           ],
                         )),
                     Container(
@@ -247,7 +247,9 @@ class _ViewHomePageState extends State<ViewHomePage> {
                         color: Color.fromARGB(255, 251, 251, 135),
                       ),
                     ),
-                    WidgetLightForLifeOnOff(isStatus: setInfoLFL,),
+                    WidgetLightForLifeOnOff(
+                      isStatus: setInfoLFL,
+                    ),
                     Container(
                         width: MediaQuery.of(context).size.width * 1,
                         // height: 15,
@@ -263,8 +265,8 @@ class _ViewHomePageState extends State<ViewHomePage> {
                                 {_haddleOpenLightForLife(setInfoLFL)},
                             icon: Icon(
                               setInfoLFL == true
-                              ? Icons.arrow_drop_up_outlined
-                              : Icons.arrow_drop_down_outlined,
+                                  ? Icons.arrow_drop_up_outlined
+                                  : Icons.arrow_drop_down_outlined,
                               color: const Color.fromARGB(255, 255, 255, 255),
                             )))
                   ],
