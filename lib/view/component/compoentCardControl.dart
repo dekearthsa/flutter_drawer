@@ -6,6 +6,9 @@ class WidgetCardController extends StatefulWidget {
 }
 
 class _WidgetCardControllerState extends State<WidgetCardController> {
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,7 +32,17 @@ class _WidgetCardControllerState extends State<WidgetCardController> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                   color: Color.fromARGB(100, 255, 255, 255)),
-              child: Column(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shadowColor: Color.fromARGB(0,255, 255, 255),
+                  backgroundColor: Color.fromARGB(0,255, 255, 255),
+                  minimumSize: Size.zero, // Set this
+                  padding: EdgeInsets.zero, // and this
+                ),
+                onPressed: () => {
+
+                },
+                child: Column(
                 children: [
                   Container(
                     margin: EdgeInsets.only(left: 10.0, top: 10.0),
@@ -51,6 +64,9 @@ class _WidgetCardControllerState extends State<WidgetCardController> {
                   )
                 ],
               ),
+                
+              )
+              ,
             ),
             Container(
               margin: EdgeInsets.only(top: 5, left: 5, bottom: 5, right: 5),
